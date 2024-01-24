@@ -3,17 +3,19 @@ import { RxMagnifyingGlass, RxSun } from "react-icons/rx";
 import { FaLocationDot } from "react-icons/fa6";
 import WeatherCard from './WeatherCard';
 
+
 const Navigation = () => {
-    const [searchValue, setSearchValue] = useState("ahmedabad");
+    const [searchValue, setSearchValue] = useState("");
     const [tempInfo, setTempInfo] = useState([]);
     const [darkMode, setDarkMode] = useState(true);
 
-    // const API_KAY = "fe4feefa8543e06d4f3c66d92c61b69c";
-    const API_KAY = "b1e7c4cb104550c0c693ceb415ac3553";
+    // Default location value
+    const defaultLocation = "ahmedabad";
+
+    let URL = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue || defaultLocation}&appid=${import.meta.env.VITE_APP_API_KEY}&units=metric`;
 
     const fetchWeatherInfo = async () => {
         try {
-            let URL = `https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&appid=${API_KAY}&units=metric`;
             const response = await fetch(URL);
             const data = await response.json();
 
