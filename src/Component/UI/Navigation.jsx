@@ -43,21 +43,22 @@ const Navigation = () => {
     }
 
     useEffect(() => {
-        fetchWeatherInfo()
-        const theme = localStorage.getItem("theme");
-        if (theme == "dark") setDarkMode(false)
-    }, [])
+        const fetchDataAndSetTheme = async () => {
+            await fetchWeatherInfo();
 
-    useEffect(() => {
-        if (darkMode) {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem("theme", "dark");
-        }
-        else {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem("theme", "light");
-        }
-    }, [darkMode])
+            const theme = localStorage.getItem("theme");
+            if (theme === "dark") {
+                setDarkMode(false);
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem("theme", "light");
+            }
+        };
+
+        fetchDataAndSetTheme();
+    }, [darkMode]);
+
 
     return (
 
