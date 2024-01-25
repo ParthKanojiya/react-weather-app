@@ -45,7 +45,9 @@ const Navigation = () => {
   useEffect(() => {
     fetchWeatherInfo();
     const theme = localStorage.getItem("theme");
-    if (theme == "dark") setDarkMode(false);
+    if (theme === "dark") {
+      setDarkMode(false);
+    }
   }, []);
 
   useEffect(() => {
