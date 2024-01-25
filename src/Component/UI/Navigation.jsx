@@ -6,7 +6,7 @@ import WeatherCard from "./WeatherCard";
 const Navigation = () => {
   const [searchValue, setSearchValue] = useState("");
   const [tempInfo, setTempInfo] = useState([]);
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   // Default location value
   const defaultLocation = "ahmedabad";
@@ -46,7 +46,7 @@ const Navigation = () => {
     fetchWeatherInfo();
     const theme = localStorage.getItem("theme");
     if (theme === "dark") {
-      setDarkMode(false);
+      setDarkMode(true);
     }
   }, []);
 
