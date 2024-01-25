@@ -33,7 +33,6 @@ const WeatherCard = ({ tempInfo }) => {
     // Get current day name
     const dayName = moment().format('dddd');
 
-
     return (
         <>
             <section
@@ -41,7 +40,7 @@ const WeatherCard = ({ tempInfo }) => {
             >
 
                 {/* Current Weather Container Start */}
-                <div className='min-w-[18rem] gap-4 rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 relative flex h-fit w-full shrink-0 flex-col justify-between overflow-hidden md:min-h-[25rem] row-span-2'>
+                <div className='min-w-[18rem] gap-4 rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 relative flex h-fit w-full shrink-0 flex-col justify-between overflow-hidden md:min-h-[25rem] row-span-2 dark:border-slate-700 dark:shadow-none bg-border'>
                     <div className="flex justify-between text-lg font-semibold">
                         <span>{dayName}</span>
                         <div className="tabular-nums">{time.toLocaleTimeString()}</div>
@@ -65,7 +64,7 @@ const WeatherCard = ({ tempInfo }) => {
                 {/* Current Weather Container End */}
 
                 {/* Sunset Weather Container start */}
-                <div className='relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex flex-col justify-between min-h-48'>
+                <div className='relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex flex-col justify-between min-h-48 dark:border-slate-700 dark:shadow-none bg-border'>
                     <div className='flex items-center gap-4 text-base font-semibold'>
                         <span className='scale-150'><TbSunset2 /></span>
                         <span>Sunset</span>
@@ -79,7 +78,7 @@ const WeatherCard = ({ tempInfo }) => {
                 {/* Sunset Weather Container End */}
 
                 {/* Wind Weather Container start */}
-                <div className='flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48'>
+                <div className='flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48 dark:border-slate-700 dark:shadow-none bg-border'>
                     <div className='flex items-center gap-4 text-base font-semibold'>
                         <span className='scale-150'><FaWind /></span>
                         <h3>Wind</h3>
@@ -89,7 +88,7 @@ const WeatherCard = ({ tempInfo }) => {
                 {/* Wind Weather Container End */}
 
                 {/* Pressure Weather Container start */}
-                <div className="flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48">
+                <div className="flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48 dark:border-slate-700 dark:shadow-none bg-border">
                     <div className='flex items-center gap-4 text-base font-semibold'>
                         <span className='scale-150'><RiSpeedUpLine /></span>
                         <h3>Pressure</h3>
@@ -106,7 +105,7 @@ const WeatherCard = ({ tempInfo }) => {
                 {/* Pressure Weather Container End */}
 
                 {/* Feels like Weather Container start */}
-                <div className="flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48">
+                <div className="flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48 dark:border-slate-700 dark:shadow-none bg-border">
                     <div className='flex items-center gap-4 text-base font-semibold'>
                         <span className='scale-150'><CiTempHigh className='text-lg' /></span>
                         <h3>Feels like</h3>
@@ -125,7 +124,7 @@ const WeatherCard = ({ tempInfo }) => {
                 {/* Feels like Weather Container End */}
 
                 {/* Humidity Weather Container start */}
-                <div className="flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48">
+                <div className="flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48 dark:border-slate-700 dark:shadow-none bg-border">
                     <div className='flex items-center gap-4 text-base font-semibold'>
                         <span className='scale-[2]'><WiHumidity /></span>
                         <h3>Humidity</h3>
@@ -142,7 +141,7 @@ const WeatherCard = ({ tempInfo }) => {
                 {/* Humidity Weather Container End */}
 
                 {/* Visibility Weather Container start */}
-                <div className="flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48">
+                <div className="flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48 dark:border-slate-700 dark:shadow-none bg-border">
                     <div className='flex items-center gap-4 text-base font-semibold'>
                         <span className='scale-150'><MdVisibility /></span>
                         <h3>Visibility</h3>

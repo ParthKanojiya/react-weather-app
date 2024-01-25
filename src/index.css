@@ -9,6 +9,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body {
+  background-color: #f9f5f2;
+}
+
 .dark {
   background-color: #001122 !important;
+}
+
+.bg-border {
+  border: 3px solid #282825;
+  box-shadow: 3px 3px 0 0 #282825;
+}
+
+.bg-border-dark {
+  border: 3px solid #282825;
 }
