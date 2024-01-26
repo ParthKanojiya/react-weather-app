@@ -11,11 +11,9 @@ const Navigation = () => {
   // Default location value
   const defaultLocation = "ahmedabad";
 
-  let API_KEY = "b1e7c4cb104550c0c693ceb415ac3553";
-
   let URL = `https://api.openweathermap.org/data/2.5/weather?q=${
     searchValue || defaultLocation
-  }&appid=${API_KEY}&units=metric`;
+  }&appid=${import.meta.env.VITE_APP_API_KEY}&units=metric`;
 
   const fetchWeatherInfo = async () => {
     try {
