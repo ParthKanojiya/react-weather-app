@@ -65,7 +65,7 @@ const Navigation = () => {
       <nav className="flex flex-col-reverse md:flex-row w-full justify-between py-4 gap-4">
         <div className="location flex items-center gap-2">
           <FaLocationDot className="text-2xl" />
-          <h2 className="font-bold text-sm md:text-2xl">
+          <h2 className="font-bold text-lg md:text-2xl">
             {tempInfo?.name}, {tempInfo?.country}
           </h2>
         </div>
