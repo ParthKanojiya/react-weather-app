@@ -10,7 +10,7 @@ export default {
         dark: "#292929",
       },
       backgroundColor: {
-        dark: "#001122",
+        dark: "#10162f",
       },
     },
   },
