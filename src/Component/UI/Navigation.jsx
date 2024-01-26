@@ -13,7 +13,7 @@ const Navigation = () => {
 
   let URL = `https://api.openweathermap.org/data/2.5/weather?q=${
     searchValue || defaultLocation
-  }&appid=${import.meta.env.VITE_APP_API_KEY}&units=metric`;
+  }&appid=${import.meta.env.VITE_VERCEL_ENV}&units=metric`;
 
   const fetchWeatherInfo = async () => {
     try {

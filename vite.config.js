@@ -6,8 +6,6 @@ import dotenv from "dotenv";
 export default defineConfig({
   plugins: [react()],
   define: {
-    "process.env.VITE_APP_API_KEY": JSON.stringify(
-      process.env.VITE_APP_API_KEY
-    ),
+    "process.env.VITE_VERCEL_ENV": JSON.stringify(process.env.VITE_VERCEL_ENV),
   },
 });
