@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 :root {
-  font-family: Poppins, system-ui, Avenir, Helvetica, Arial, sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -11,6 +10,7 @@
 
 body {
   background-color: #f9f5f2;
+  font-family: "Inter", sans-serif;
 }
 
 .dark {

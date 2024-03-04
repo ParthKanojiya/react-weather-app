@@ -37,54 +37,55 @@ const WeatherCard = ({ tempInfo }) => {
           </span>
           <TbLocation />
         </div>
-        <div className="flex justify-center py-7 text-8xl font-bold md:py-10">
+        <div className="flex justify-center py-7 text-8xl md:py-10 font-inter font-black">
           {Math.round(tempInfo?.temp)}°
         </div>
         <div>
           <IconComponent IconCode={tempInfo?.icon} />
         </div>
-        <div className="font-semibold text-xl">{tempInfo?.main}</div>
-        <div className="flex gap-2 dark:text-neutral-500">
+        <div className="font-extrabold text-xl">{tempInfo?.main}</div>
+        <div className="flex gap-2 dark:text-neutral-500 font-inter font-semibold">
           <span>H: {Math.round(tempInfo?.temp_max)}&deg;</span>
           <span>L: {Math.round(tempInfo?.temp_min)}&deg;</span>
         </div>
       </div>
 
       <div className="relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex flex-col justify-between min-h-48 dark:border-slate-700 dark:shadow-none bg-border">
-        <div className="flex items-center gap-4 text-base font-semibold">
+        <div className="flex items-center gap-4 text-base font-bold">
           <span className="scale-150">
             <TbSunset2 />
           </span>
           <span>Sunset</span>
         </div>
         <span className="font-semibold text-lg">{formattedSunset}</span>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 font-medium">
           <span>Sunrise:</span>
           <span>{formattedSunrise}</span>
         </div>
       </div>
 
       <div className="flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48 dark:border-slate-700 dark:shadow-none bg-border">
-        <div className="flex items-center gap-4 text-base font-semibold">
+        <div className="flex items-center gap-4 text-base font-bold">
           <span className="scale-150">
             <FaWind />
           </span>
           <h3>Wind</h3>
         </div>
-        <span className="font-semibold text-lg">
+        <div className="font-semibold text-lg">
           {(tempInfo?.speed * 3.6).toFixed(2)} km/h
-        </span>
+        </div>
+        <p className="font-medium">{tempInfo?.speed == undefined ? "" : ""}</p>
       </div>
 
       <div className="flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48 dark:border-slate-700 dark:shadow-none bg-border">
-        <div className="flex items-center gap-4 text-base font-semibold">
+        <div className="flex items-center gap-4 text-base font-bold">
           <span className="scale-150">
             <RiSpeedUpLine />
           </span>
           <h3>Pressure</h3>
         </div>
-        <div className="font-bold text-lg">{tempInfo?.pressure} hPa</div>
-        <p>
+        <div className="font-semibold text-lg">{tempInfo?.pressure} hPa</div>
+        <p className="font-medium">
           {tempInfo?.pressure < 1000
             ? "Low pressure. Expect changes in the weather."
             : tempInfo?.pressure >= 1000 && tempInfo?.pressure <= 1010
@@ -94,16 +95,16 @@ const WeatherCard = ({ tempInfo }) => {
       </div>
 
       <div className="flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48 dark:border-slate-700 dark:shadow-none bg-border">
-        <div className="flex items-center gap-4 text-base font-semibold">
+        <div className="flex items-center gap-4 text-base font-bold">
           <span className="scale-150">
             <CiTempHigh className="text-lg" />
           </span>
-          <h3>Feels like</h3>
+          <h3>Feels Like</h3>
         </div>
-        <div className="font-bold text-lg">
+        <div className="font-semibold text-lg">
           {Math.round(tempInfo?.feels_like)}°
         </div>
-        <p>
+        <p className="font-medium">
           {tempInfo?.feels_like < tempInfo?.temp
             ? "Feels colder than the actual temperature."
             : tempInfo?.feels_like > tempInfo?.temp
@@ -113,16 +114,16 @@ const WeatherCard = ({ tempInfo }) => {
       </div>
 
       <div className="flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48 dark:border-slate-700 dark:shadow-none bg-border">
-        <div className="flex items-center gap-4 text-base font-semibold">
+        <div className="flex items-center gap-4 text-base font-bold">
           <span className="scale-[2]">
             <WiHumidity />
           </span>
           <h3>Humidity</h3>
         </div>
-        <div className="font-bold text-lg">
+        <div className="font-semibold text-lg">
           {Math.round(tempInfo?.humidity)}°
         </div>
-        <p>
+        <p className="font-medium">
           {tempInfo?.humidity < 40
             ? "Low humidity. It might feel dry."
             : tempInfo?.humidity < 70
@@ -132,16 +133,16 @@ const WeatherCard = ({ tempInfo }) => {
       </div>
 
       <div className="flex relative rounded-xl border bg-card p-4 text-card-foreground shadow-sm md:p-6 flex-col justify-between min-h-48 dark:border-slate-700 dark:shadow-none bg-border">
-        <div className="flex items-center gap-4 text-base font-semibold">
+        <div className="flex items-center gap-4 text-base font-bold">
           <span className="scale-150">
             <MdVisibility />
           </span>
           <h3>Visibility</h3>
         </div>
-        <div className="font-bold text-lg">
+        <div className="font-semibold text-lg">
           {Math.round(tempInfo?.visibility / 1000)} km
         </div>
-        <p>
+        <p className="font-medium">
           {tempInfo?.visibility >= 10
             ? "It's perfectly clear right now."
             : tempInfo?.visibility >= 5

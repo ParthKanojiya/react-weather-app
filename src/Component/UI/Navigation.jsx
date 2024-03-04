@@ -63,7 +63,7 @@ const Navigation = () => {
       <nav className="flex flex-col-reverse md:flex-row w-full justify-between py-4 gap-4">
         <div className="location flex items-center gap-2">
           <FaLocationDot className="text-2xl" />
-          <h2 className="font-bold text-lg md:text-2xl">
+          <h2 className="text-lg md:text-2xl font-inter font-extrabold">
             {tempInfo?.name}, {tempInfo?.country}
           </h2>
         </div>
@@ -74,7 +74,7 @@ const Navigation = () => {
               <input
                 type="search"
                 placeholder="Search city..."
-                className="w-full h-full outline-none text-base dark:bg-dark dark:text-white bg-transparent dark:shadow-none"
+                className="w-full h-full outline-none text-base dark:bg-dark dark:text-white bg-transparent dark:shadow-none font-inter font-medium"
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
               />
