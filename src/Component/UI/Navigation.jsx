@@ -1,48 +1,22 @@
 import React, { useState, useEffect } from "react";
 import { RxMagnifyingGlass, RxSun } from "react-icons/rx";
 import { FaLocationDot } from "react-icons/fa6";
-import WeatherCard from "./WeatherCard";
+import WeatherCards from "./WeatherCards.jsx";
 import Shimmer from "./Shimmer";
+import { useWeather } from "../../context/Context";
 
 const Navigation = () => {
-  const [searchValue, setSearchValue] = useState("");
-  const [tempInfo, setTempInfo] = useState([]);
-  const [darkMode, setDarkMode] = useState(false);
-
-  // Default location value
-  const defaultLocation = "ahmedabad";
-
-  let URL = `https://api.openweathermap.org/data/2.5/weather?q=${
-    searchValue || defaultLocation
-  }&appid=${import.meta.env.VITE_VERCEL_ENV}&units=metric`;
-
-  const fetchWeatherInfo = async () => {
-    try {
-      const response = await fetch(URL);
-      const data = await response.json();
-
-      const myWeatherInfo = {
-        ...data.main,
-        visibility: data.visibility,
-        name: data.name,
-        speed: data.wind.speed,
-        sunrise: data.sys.sunrise,
-        sunset: data.sys.sunset,
-        country: data.sys.country,
-        main: data.weather[0].main,
-        lon: data.coord.lon,
-        lat: data.coord.lat,
-        timezone: data.timezone,
-        icon: data.weather[0].icon,
-      };
-      setTempInfo(myWeatherInfo);
-    } catch (error) {
-      console.log("Error fetching weather info:", error);
-    }
-  };
+  const {
+    searchValue,
+    tempInfo,
+    darkMode,
+    setTempInfo,
+    setDarkMode,
+    setSearchValue,
+    fetchWeatherInfo,
+  } = useWeather();
 
   useEffect(() => {
-    fetchWeatherInfo();
     const theme = localStorage.getItem("theme");
     if (theme === "dark") {
       setDarkMode(true);
@@ -74,7 +48,7 @@ const Navigation = () => {
             </div>
 
             <div className="flex w-full items-center gap-4 sm:w-fit">
-              <button className="inline-flex items-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent/50 hover:text-accent-foreground rounded-md w-full max-w-80 md:max-w-screen-sm lg:max-w-screen-lg lg:w-96 whitespace-nowrap px-4 dark:border-slate-700 dark:shadow-none bg-border h-12">
+              <button className="inline-flex items-center text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent/50 hover:text-accent-foreground rounded-full w-full max-w-80 md:max-w-screen-sm lg:max-w-screen-lg lg:w-96 whitespace-nowrap px-4 dark:border-slate-700 dark:shadow-none bg-border h-12">
                 <p className="flex items-center justify-between gap-4 text-sm text-muted-foreground w-full h-full">
                   <input
                     type="search"
@@ -91,7 +65,7 @@ const Navigation = () => {
               </button>
 
               <button
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent/50 hover:text-accent-foreground w-12 shrink-0 bg-border dark:shadow-none dark:border-slate-700 h-12"
+                className="inline-flex items-center justify-center rounded-full text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent/50 hover:text-accent-foreground w-12 shrink-0 bg-border dark:shadow-none dark:border-slate-700 h-12"
                 type="button"
                 onClick={() => setDarkMode(!darkMode)}
               >
@@ -100,7 +74,7 @@ const Navigation = () => {
             </div>
           </nav>
 
-          <WeatherCard tempInfo={tempInfo} />
+          <WeatherCards />
         </>
       )}
     </>
